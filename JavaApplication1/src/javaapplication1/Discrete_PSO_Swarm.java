@@ -124,6 +124,7 @@ public class Discrete_PSO_Swarm {
             particula1.getPosition().add(a643);
             
             
+            
             particles.add(particula1);
                 
                 
@@ -146,8 +147,24 @@ public class Discrete_PSO_Swarm {
             particles.add(particula2);    
                 
                 
+
+            Discrete_Particle particula3 = new Discrete_Particle();
+            Allocation a1113 = new Allocation(c1, vm2, servidor1);
+            Allocation a2113 = new Allocation(c2, vm3, servidor3);
+            Allocation a3223 = new Allocation(c3, vm1, servidor2);
+            Allocation a4323 = new Allocation(c4, vm4, servidor2);
+            Allocation a5433 = new Allocation(c5, vm3, servidor3);
+            Allocation a6433 = new Allocation(c6, vm2, servidor1);
+            
+            particula3.getPosition().add(a1113);
+            particula3.getPosition().add(a2113);
+            particula3.getPosition().add(a3223);
+            particula3.getPosition().add(a4323);
+            particula3.getPosition().add(a5433);
+            particula3.getPosition().add(a6433);
                 
-                
+            
+             particles.add(particula3);    
                 
 
 		//Creamos una particula con la posicion actual del datacenter
