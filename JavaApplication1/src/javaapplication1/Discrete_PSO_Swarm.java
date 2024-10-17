@@ -52,11 +52,11 @@ public class Discrete_PSO_Swarm {
             hosts.add(servidor1);
             
             ContainerHost servidor2 = new ContainerHost();
-            servidor1.setId(2);
+            servidor2.setId(2);
             hosts.add(servidor2);
             
             ContainerHost servidor3 = new ContainerHost();
-            servidor1.setId(3);
+            servidor3.setId(3);
             hosts.add(servidor3);
             
             ContainerVm vm1 = new ContainerVm();
