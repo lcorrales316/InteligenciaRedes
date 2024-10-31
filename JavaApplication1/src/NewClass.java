@@ -15,7 +15,7 @@ public class NewClass {
         Discrete_PSO_Swarm swarm = new Discrete_PSO_Swarm(funcionAdaptacion);
         swarm.init();
         
-        for(int i =0; i<10; i++){
+        for(int i =0; i<100; i++){
             swarm.evolve();
         }
         
@@ -23,4 +23,8 @@ public class NewClass {
         for(Allocation asignacion : swarm.getBestPosition())
             System.out.println(asignacion);
     }
+    
+    
+    
+    
 }
