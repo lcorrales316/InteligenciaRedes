@@ -209,6 +209,37 @@ public class Discrete_PSO_Swarm {
 		}
 	}
 
+        
+        public void localOptimization(Discrete_Particle particle) {
+        boolean improved;
+        do {
+            improved = false;
+            double currentFitness = fitnessFunction.evaluate(particle);
+
+            // Intentar modificar cada asignación en la posición actual de la partícula
+            for (Allocation alloc : particle.getPosition()) {
+                Allocation original = new Allocation(alloc.getContainer(), alloc.getVm(), alloc.getHost());
+
+                // Hacer cambios aleatorios en la asignación (Host o VM)
+                alloc.setHost(getRandomHost());
+                alloc.setVm(getRandomVm());
+
+                double newFitness = fitnessFunction.evaluate(particle);
+
+                if (fitnessFunction.isBetterThan(currentFitness, newFitness)) {
+                    improved = true;
+                    currentFitness = newFitness;
+                } else {
+                    // Restaurar la asignación original si no hay mejora
+                    alloc.setHost(original.getHost());
+                    alloc.setVm(original.getVm());
+                }
+            }
+        } while (improved);  // Continuar hasta que no se observen mejoras
+    }
+        
+        
+        
     /**
 	 * Make an iteration: 
 	 * 	- evaluates the swarm 
@@ -218,11 +249,29 @@ public class Discrete_PSO_Swarm {
 	public void evolve() {
 		// Initialize (if not already done)
 		if (particles == null) init();
-
-		evaluate(); // Evaluate particles
+   
+                evaluate(); // Evaluate particles
+                // Realizar optimización local para cada partícula después de la evaluación
+    for (Discrete_Particle particle : particles) {
+        localOptimization(particle);  // Afinar la posición con optimización local
+    }
+		
 		update(); // Update positions and velocities
 	}
 
+private ContainerHost getRandomHost() {
+    int randomIndex = (int) (Math.random() * hosts.size());
+    return hosts.get(randomIndex);
+}
+
+private ContainerVm getRandomVm() {
+    int randomIndex = (int) (Math.random() * vms.size());
+    return vms.get(randomIndex);
+}
+        
+        
+        
+        
     	/**
 	 * Update every particle's position and velocity, also apply position and velocity constraints (if any)
 	 * Warning: Particles must be already evaluated
