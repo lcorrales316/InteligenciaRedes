@@ -1,0 +1,38 @@
+Respuestas Luis Alonso Corrales Chaves.
+
+
+- Cuál fue el problema que resolvimos? el espacio fue dinámico, estático, o determinista? porqué? 1pto
+El problema que resolvimos fue de asignación de recursos para un ambiente de computación en la nube. Donde se buscaba asignar contenedores a máquinas virtuales (VMs) y estas a servidores físicos de la manera más optima, minimizando un costo o maximizando una función de fitness.
+El espacio fue dinamico ya que las configuraciones cambian iterativamente con las reglas del PSO y los ajustes locales.
+
+
+- Cómo se representaron las posibles soluciones? 1pto
+ Las posibles soluciones se representaron mediante listas de asignaciones a objetos. Donde cada objeto define cómo se asigna un recurso a una máquina y a un servidor, permitiendo explorar y optimizar el espacio de búsqueda de manera efectiva.
+
+- Cómo se creó la población inicial? 1pto
+La población inicial fue creada manualmente mediante tres partículas con posiciones predefinidas. 
+
+
+- Cómo inicia la ejecución, se empieza evaluando o actualizando la posición de las partículas? 1pto
+El algoritmo comienza evaluando las partículas iniciales.
+
+
+- Qué es actualizar la posición y qué procedimiento realizamos? 2pto
+Actualizar la posición significa ajustar la asignación de recursos (contenedores a VMs y servidores) para cada partícula, usando información de la mejor posición conocida y la mejor posición global del enjambre.
+
+- Para qué sirve la función objetivo y qué hizo en nuestro laboratorio? 1pto
+Evalúa la calidad de las soluciones propuestas por las partículas, guiando la búsqueda hacia las mejores asignaciones.
+En el laboratorio permitió determinar la eficiencia de asignación de contenedores, usando criterios como el costo y capacidad.
+
+- Cómo utilizamos la velocidad de las partículas en nuestro laboratorio? 
+La velocidad en el PSO guía la dirección y magnitud de los cambios en las asignaciones. En este caso, la lógica de actualización de partículas integró las reglas de PSO adaptadas a un espacio discreto.
+
+- Indique si lo que hicimos es un algoritmo evolutivo, y porqué si o no. 1pto
+No es un algoritmo evolutivo, ya que PSO no utiliza operadores genéticos. Es un algoritmo de optimización basado en enfoques bioinspirados que emula el comportamiento colectivo de enjambres.
+
+- Qué tiene que ver lo que hicimos con un enjambre de aves? 1pto
+
+Está inspirado en el comportamiento de un enjambre de aves que busca comida donde cada ave (partícula) ajusta su posición basándose en su propia experiencia y la de sus vecinas. Donde de forma similar, las partículas en nuestro laboratorio se movieron hacia mejores soluciones evaluando posiciones personales y globales.
+
+
+
